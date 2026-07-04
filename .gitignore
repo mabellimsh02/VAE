@@ -1,0 +1,4 @@
+dataset/
+generated_*.png
+.venv/
+__pycache__/
