@@ -20,11 +20,12 @@ A minimal PyTorch implementation of a Variational Autoencoder (VAE), trained on 
 - torch
 - torchvision
 - tqdm
+- numpy<2 (some torch builds are compiled against NumPy 1.x and crash under NumPy 2.x — `pip install "numpy<2"` if you hit `RuntimeError: Numpy is not available`)
 
 Install with:
 
 ```bash
-pip install torch torchvision tqdm
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -42,3 +43,11 @@ You can also run `model.py` directly to sanity-check the model's output shapes o
 ```bash
 python model.py
 ```
+
+## Results
+
+One sampled generation per digit (0–9) after a full 10-epoch training run:
+
+![Sample generated digits](sample_digits.png)
+
+The latent space is smooth enough that sampling around each digit's learned encoding reliably decodes back into a legible, correctly-shaped digit.
